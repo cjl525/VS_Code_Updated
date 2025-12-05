@@ -1,6 +1,6 @@
 ## P2P2P PlantUML to PDF Exporter
 
-## This VS Code extension converts PlantUML (.puml) diagrams into PDF documents using your local tools. All processing is done on your machine — nothing is sent to a cloud service. This makes it safe for confidential diagrams and internal documentation.
+## This VS Code extension converts PlantUML (.puml) diagrams into PDF documents using your local tools. All processing is done on your machine.
 
 ## Features
 
@@ -54,8 +54,8 @@ Once everything is configured:
 
 ## Troubleshooting
 
-No PNG generated – Make sure the plantuml.jar and dot.exe paths are correct in the settings. PlantUML must be able to find Graphviz.
+- No PNG generated – Make sure the plantuml.jar and dot.exe paths are correct in the settings. PlantUML must be able to find Graphviz.
 
-PDF not created – Check that pdflatex is installed and available at the specified path. The extension relies on it to compile the LaTeX document.
+- PDF not created – Check that pdflatex is installed and available at the specified path. The extension relies on it to compile the LaTeX document.
 
-Logo not showing – Verify that the file path in p2p2p.logoPath points to an existing image file.
+- Logo not showing – Verify that the file path in p2p2p.logoPath points to an existing image file.
