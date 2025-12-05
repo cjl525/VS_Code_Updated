@@ -28,3 +28,34 @@ Before using the extension you must install:
 - LaTeX distribution – the extension calls pdflatex to compile PDFs. Install MiKTeX
    or TeX Live
    and ensure pdflatex is on your system path.
+
+## Configuration
+
+| Setting                 | Purpose                                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------ |
+| `p2p2p.plantumlPath`    | Full path to `plantuml.jar` (e.g., `C:\Tools\plantuml.jar`).                                     |
+| `p2p2p.graphvizDotPath` | Full path to Graphviz’s `dot.exe` (e.g., `C:\Program Files\Graphviz\bin\dot.exe`).               |
+| `p2p2p.pdflatexPath`    | Path to `pdflatex` if it’s not on your system `PATH`.                                            |
+| `p2p2p.logoPath`        | Optional path to a logo image.  If set, the logo appears above the diagram in the generated PDF. |
+
+## Usage
+
+Once everything is configured:
+
+1. Open a PlantUML file (.puml) in VS Code.
+
+2. Look in the bottom left of the window — you should see a button labelled Export PlantUML to PDF. Click it to start the export.
+
+3. Alternatively, press Ctrl+Shift+P and run the command P2P2P: Export PlantUML to PDF.
+
+4. The extension creates a temporary directory, renders the diagram to a PNG via PlantUML and Graphviz, wraps it in a LaTeX template and compiles it to PDF using pdflatex. The final PDF is saved in the same folder as your .puml file.
+
+5. A notification prompts you to open the PDF. You can click Open PDF or dismiss the notification.
+
+## Troubleshooting
+
+No PNG generated – Make sure the plantuml.jar and dot.exe paths are correct in the settings. PlantUML must be able to find Graphviz.
+
+PDF not created – Check that pdflatex is installed and available at the specified path. The extension relies on it to compile the LaTeX document.
+
+Logo not showing – Verify that the file path in p2p2p.logoPath points to an existing image file.
