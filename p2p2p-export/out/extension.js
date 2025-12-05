@@ -71,15 +71,15 @@ async function generatePdf(pumlPath, logoPath, outputChannel) {
     outputChannel.appendLine('Generating PNG with PlantUML...');
     try {
             await execFileAsync('java', [
-            '-jar',
-            'C:\\Tools\\plantuml.jar',
-            '-tpng',
-            '-graphvizdot',
-            'C:\\Program Files\\Graphviz\\bin\\dot.exe',
-            '-o',
-            workingDir,
-            pumlPath
-        ]);
+                '-jar',
+                'C:\\Tools\\plantuml.jar',
+                '-tpng',
+                '-graphvizdot',
+                'C:\\Program Files\\Graphviz\\bin\\dot.exe',
+                '-o',
+                workingDir,
+                pumlPath
+            ]);
 
     }
     catch (error) {
