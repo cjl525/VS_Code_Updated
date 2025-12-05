@@ -1,15 +1,13 @@
 {
   "name": "p2p2p-export",
-  "displayName": "p2p2p PlantUML to PDF",
-  "description": "Export PlantUML (.puml) diagrams to PDF via LaTeX with an optional logo.",
-  "version": "0.0.1",
+  "displayName": "P2P2P PlantUML to PDF Exporter",
+  "description": "Exports PlantUML diagrams to PDF locally using PlantUML, Graphviz, and LaTeX.",
+  "version": "0.0.2",
   "publisher": "p2p2p",
   "engines": {
     "vscode": "^1.84.0"
   },
-  "categories": [
-    "Other"
-  ],
+  "categories": ["Other"],
   "activationEvents": [
     "onCommand:p2p2p.exportPDF",
     "onLanguage:plantuml"
@@ -23,13 +21,27 @@
       }
     ],
     "configuration": {
-      "type": "object",
-      "title": "p2p2p Export Settings",
+      "title": "P2P2P Export Settings",
       "properties": {
         "p2p2p.logoPath": {
           "type": "string",
           "default": "",
-          "description": "Optional path to a logo image to place above the UML diagram in the generated PDF."
+          "description": "Optional path to a logo image for the PDF header."
+        },
+        "p2p2p.plantumlPath": {
+          "type": "string",
+          "default": "C:\\\\Tools\\\\plantuml.jar",
+          "description": "Full path to plantuml.jar"
+        },
+        "p2p2p.graphvizDotPath": {
+          "type": "string",
+          "default": "C:\\\\Program Files\\\\Graphviz\\\\bin\\\\dot.exe",
+          "description": "Full path to the Graphviz dot executable"
+        },
+        "p2p2p.pdflatexPath": {
+          "type": "string",
+          "default": "pdflatex",
+          "description": "Path to pdflatex. Leave as 'pdflatex' if it is on your system PATH."
         }
       }
     }
@@ -44,11 +56,6 @@
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@types/vscode": "^1.84.0",
-    "typescript": "^5.4.0",
-    "esbuild": "^0.21.5"
-  },
-  "dependencies": {
-  "@plantuml/plantuml-wasm": "^1.0.0"
+    "typescript": "^5.4.0"
   }
-
 }
