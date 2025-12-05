@@ -70,7 +70,17 @@ async function generatePdf(pumlPath, logoPath, outputChannel) {
     const pdfPath = path.join(workingDir, pdfFileName);
     outputChannel.appendLine('Generating PNG with PlantUML...');
     try {
-        await execFileAsync('plantuml', ['-tpng', '-o', workingDir, pumlPath]);
+            await execFileAsync('java', [
+            '-jar',
+            'C:\\Tools\\plantuml.jar',
+            '-tpng',
+            '-graphvizdot',
+            'dot',
+            '-o',
+            workingDir,
+            pumlPath
+        ]);
+
     }
     catch (error) {
         outputChannel.appendLine(`PlantUML error: ${error?.stderr || error?.message}`);
