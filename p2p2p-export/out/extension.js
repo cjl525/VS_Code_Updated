@@ -187,7 +187,17 @@ async function exportActivePlantUml() {
 function activate(context) {
     const disposable = vscode.commands.registerCommand("p2p2p.exportPDF", exportActivePlantUml);
     context.subscriptions.push(disposable);
+
+    // button addition
+    const exportButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+    exportButton.text = "$(file-pdf) Export PDF";
+    exportButton.command = "p2p2p.exportPDF";
+    exportButton.tooltip = "Export current PlantUML diagram to PDF";
+    exportButton.show();
+
+    context.subscriptions.push(exportButton);
 }
+
 
 function deactivate() {}
 
