@@ -116,6 +116,30 @@ async function exportActivePlantUml(): Promise<void> {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+  const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+  statusBarItem.text = '$(file-pdf) Export PlantUML to PDF';
+  statusBarItem.command = 'p2p2p.exportPDF';
+  statusBarItem.tooltip = 'Export the active PlantUML file to PDF';
+
+  const updateStatusBarVisibility = () => {
+    const editor = vscode.window.activeTextEditor;
+    const document = editor?.document;
+    const isPuml =
+      document &&
+      !document.isUntitled &&
+      (document.languageId === 'plantuml' || path.extname(document.fileName).toLowerCase() === '.puml');
+
+    if (isPuml) {
+      statusBarItem.show();
+    } else {
+      statusBarItem.hide();
+    }
+  };
+
+  updateStatusBarVisibility();
+  context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(updateStatusBarVisibility));
+  context.subscriptions.push(statusBarItem);
+
   const disposable = vscode.commands.registerCommand('p2p2p.exportPDF', exportActivePlantUml);
   context.subscriptions.push(disposable);
 }
