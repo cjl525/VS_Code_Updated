@@ -1,0 +1,49 @@
+{
+  "name": "p2p2p-export",
+  "displayName": "p2p2p PlantUML to PDF",
+  "description": "Export PlantUML (.puml) diagrams to PDF via LaTeX with an optional logo.",
+  "version": "0.0.1",
+  "publisher": "p2p2p",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:p2p2p.exportPDF"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "p2p2p.exportPDF",
+        "title": "Export PlantUML to PDF",
+        "category": "p2p2p"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "p2p2p Export Settings",
+      "properties": {
+        "p2p2p.logoPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional path to a logo image to place above the UML diagram in the generated PDF."
+        }
+      }
+    }
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "echo \"No lint configured\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.84.0",
+    "typescript": "^5.4.0",
+    "esbuild": "^0.21.5"
+  }
+}
