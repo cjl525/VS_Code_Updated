@@ -18,6 +18,7 @@ This Visual Studio Code extension exports the currently active `.puml` diagram t
 ## Usage
 1. Open a `.puml` file in the editor.
 2. Run the command **p2p2p: Export PlantUML to PDF** (command ID: `p2p2p.exportPDF`).
-3. On success, a notification appears with a link to open the generated PDF.
+3. Alternatively, you can press the button bottom right to run the export command. 
+4. On success, a notification appears with a link to open the generated PDF.
 
 Errors and tool output are captured in the *p2p2p Export* output channel.
