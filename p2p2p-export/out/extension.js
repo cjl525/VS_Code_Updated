@@ -75,7 +75,7 @@ async function generatePdf(pumlPath, logoPath, outputChannel) {
             'C:\\Tools\\plantuml.jar',
             '-tpng',
             '-graphvizdot',
-            'dot',
+            'C:\\Program Files\\Graphviz\\bin\\dot.exe',
             '-o',
             workingDir,
             pumlPath
