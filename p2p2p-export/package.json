@@ -11,7 +11,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:p2p2p.exportPDF"
+    "onCommand:p2p2p.exportPDF",
+    "onLanguage:plantuml"
   ],
   "contributes": {
     "commands": [
