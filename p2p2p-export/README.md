@@ -1,24 +1,30 @@
-# p2p2p PlantUML to PDF Export
+## P2P2P PlantUML to PDF Exporter
 
-This Visual Studio Code extension exports the currently active `.puml` diagram to a PDF via LaTeX. It wraps the provided PlantUML → LaTeX logic and shells out to `plantuml` and `pdflatex` (or compatible LaTeX installation).
+## This VS Code extension converts PlantUML (.puml) diagrams into PDF documents using your local tools. All processing is done on your machine — nothing is sent to a cloud service. This makes it safe for confidential diagrams and internal documentation.
 
 ## Features
-- Detects the active editor file and ensures it is a saved `.puml` document.
-- Generates a temporary LaTeX file, compiles it to PDF, and saves the PDF next to the source `.puml` file.
-- Optional logo placement above the diagram (configured via `p2p2p.logoPath`).
-- Shows output in a dedicated channel and opens the resulting PDF inside VS Code.
+
+- Offline conversion: Uses your local PlantUML JAR, Graphviz dot executable and LaTeX (pdflatex) to generate a high‑quality PDF. No external network calls are made.
+
+- One‑click export: A status bar button is added when you open a .puml file. Click it to export the diagram to PDF.
+
+- Command Palette integration: Run P2P2P: Export PlantUML to PDF from the Command Palette (Ctrl+Shift+P) as an alternative to the button.
+
+- Configurable paths: Set custom paths for plantuml.jar, dot.exe, pdflatex and an optional logo image via the extension’s settings.
+
+- Optional logo: Add a logo image at the top of the PDF by specifying a path in the settings.
 
 ## Requirements
-- `plantuml` available on your `PATH`.
-- `pdflatex` (or a LaTeX distribution that provides it) available on your `PATH`.
 
-## Extension Settings
-- `p2p2p.logoPath`: Optional path to an image file to display above the UML diagram in the generated PDF.
+Before using the extension you must install:
 
-## Usage
-1. Open a `.puml` file in the editor.
-2. Run the command **p2p2p: Export PlantUML to PDF** (command ID: `p2p2p.exportPDF`).
-3. Alternatively, you can press the button bottom right to run the export command. 
-4. On success, a notification appears with a link to open the generated PDF.
+- Java Runtime (JRE) – required to run PlantUML.
 
-Errors and tool output are captured in the *p2p2p Export* output channel.
+- PlantUML JAR – download the jar file from the PlantUML website
+  . Place it somewhere like C:\Tools\plantuml.jar.
+
+- Graphviz – install Graphviz so that the dot.exe binary is available (e.g., under C:\Program Files\Graphviz\bin).
+
+- LaTeX distribution – the extension calls pdflatex to compile PDFs. Install MiKTeX
+   or TeX Live
+   and ensure pdflatex is on your system path.
